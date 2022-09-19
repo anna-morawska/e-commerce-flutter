@@ -10,12 +10,10 @@ import '../../widgets/button.dart';
 
 class AddEditProductForm extends StatefulWidget {
   late final EditableProduct editableProduct;
-  late final TextEditingController imageUrlController;
 
   AddEditProductForm(EditableProduct editableProductParam, [Key? key])
       : super(key: key) {
     editableProduct = editableProductParam;
-    imageUrlController = TextEditingController(text: editableProduct.imageUrl);
   }
 
   @override
@@ -69,17 +67,12 @@ class _AddEditProductFormState extends State<AddEditProductForm> {
     }
   }
 
-  void _forceRerender() {
-    setState(() {});
-  }
-
   @override
   void dispose() {
     super.dispose();
     _titleFocusNode.dispose();
     _priceFocusNode.dispose();
     _descriptionFocusNode.dispose();
-    widget.imageUrlController.dispose();
   }
 
   String? _isRequiredValidator(String? value) {
@@ -101,18 +94,11 @@ class _AddEditProductFormState extends State<AddEditProductForm> {
     return null;
   }
 
-  String? _isValidUrlValidator(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'This field is required';
-    }
-
-    var urlPattern =
-        r"(https?|ftp)://([-A-Z0-9.]+)(/[-A-Z0-9+&@#/%=~_|!:,.;]*)?(\?[A-Z0-9+&@#/%=~_|!:‌​,.;]*)?";
-    if (!RegExp(urlPattern, caseSensitive: false).hasMatch(value)) {
-      return 'Please enter a valid URL';
-    }
-
-    return null;
+  _setImageUrl(String url) {
+    setState(() {
+      widget.editableProduct.imageUrl = url;
+    });
+    _setFieldFocus(_titleFocusNode);
   }
 
   @override
@@ -121,19 +107,9 @@ class _AddEditProductFormState extends State<AddEditProductForm> {
       key: _formKey,
       child: Column(
         children: [
-          ProductImagePreview(imageUrl: widget.imageUrlController.text),
-          TextFormFieldInput(
-            hint: "Image URL",
-            controller: widget.imageUrlController,
-            keyboardType: TextInputType.url,
-            textInputAction: TextInputAction.next,
-            onEditingComplete: _forceRerender,
-            validator: _isValidUrlValidator,
-            onFieldSubmitted: (_) => _setFieldFocus(_titleFocusNode),
-            onSaved: (newValue) {
-              widget.editableProduct.imageUrl = newValue;
-            },
-          ),
+          ProductImagePreview(
+              imageUrl: widget.editableProduct.imageUrl,
+              setImageUrl: _setImageUrl),
           TextFormFieldInput(
             hint: "Title",
             initialValue: widget.editableProduct.title,

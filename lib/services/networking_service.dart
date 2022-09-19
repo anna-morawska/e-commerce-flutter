@@ -20,7 +20,7 @@ extension EndpointsExtension on Endpoints {
         return "/products/$id.json";
 
       case Endpoints.deleteProduct:
-        return "/productsasdasdasd/$id.json";
+        return "/products/$id.json";
     }
   }
 }
@@ -89,8 +89,6 @@ class NetworkingService {
     final url = Uri.https(authority, unencodedPath);
 
     final response = await http.delete(url);
-
-    print(jsonDecode(response.body));
 
     if (response.statusCode >= 400) {
       throw HttpException("Could not delete product");

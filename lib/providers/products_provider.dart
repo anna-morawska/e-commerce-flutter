@@ -117,7 +117,10 @@ class ProductsProvider extends ChangeNotifier {
 
     try {
       await _api.makeDeleteRequest(
-          unencodedPath: Endpoints.deleteProduct.getUrl(id: id));
+        unencodedPath: Endpoints.deleteProduct.getUrl(
+          id: id,
+        ),
+      );
     } catch (error) {
       _products.insert(index, cachedProduct);
       // deal with the error in the UI

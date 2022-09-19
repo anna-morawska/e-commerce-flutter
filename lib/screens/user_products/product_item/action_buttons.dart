@@ -17,15 +17,24 @@ class ActionButtons extends StatelessWidget {
 
   void _removeProduct(BuildContext context) async {
     try {
-      await context.read<ProductsProvider>().removeProduct(id: productId);
+      await context.read<ProductsProvider>().removeProduct(
+            id: productId,
+          );
     } catch (error) {
-      CustomSnackBar.showErrorSnackBar(context, error.toString());
+      CustomSnackBar.showErrorSnackBar(
+        context,
+        error.toString(),
+      );
     }
   }
 
   void _editProduct(BuildContext context) {
-    Navigator.of(context).pushNamed(AddEditProductScreen.routeName,
-        arguments: AddEditProductScreenArguments(id: productId));
+    Navigator.of(context).pushNamed(
+      AddEditProductScreen.routeName,
+      arguments: AddEditProductScreenArguments(
+        id: productId,
+      ),
+    );
   }
 
   @override
