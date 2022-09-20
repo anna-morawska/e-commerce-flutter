@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import './providers/orders_provider.dart';
 import './screens/products/products_screen.dart';
@@ -13,6 +14,7 @@ import './screens/add_edit_product/add_edit_product_screen.dart';
 import './screens/auth/auth_screen.dart';
 import './screens/onboarding/onboarding_screen.dart';
 import './screens/user_products/user_products_screen.dart';
+import 'i18n/generated/l10n.dart';
 
 void main() {
   // if (kDebugMode) {
@@ -48,6 +50,13 @@ class MyApp extends StatelessWidget {
       theme: appTheme,
       initialRoute: ProductsScreen.routeName,
       routes: appRoutes,
+      supportedLocales: T.delegate.supportedLocales,
+      localizationsDelegates: const [
+        T.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
     );
   }
 }

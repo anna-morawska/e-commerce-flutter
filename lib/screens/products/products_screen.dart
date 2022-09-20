@@ -10,6 +10,8 @@ import '../../screens/cart/cart_screen.dart';
 import '../../screens/products/categories.dart';
 import '../../screens/products/product_list.dart';
 
+import 'package:ecommerce_app/i18n/generated/l10n.dart';
+
 class ProductsScreen extends StatelessWidget {
   static const routeName = '/products';
 
@@ -35,22 +37,22 @@ class ProductsScreen extends StatelessWidget {
       ],
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
+        children: [
           FractionallySizedBox(
             widthFactor: 0.7,
             child: TypographyH1(
-              'Check out the most popular products',
+              T.of(context).main_screen_title,
               color: ThemeColors.textSecondary,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
-          Categories(),
-          SizedBox(
+          const Categories(),
+          const SizedBox(
             height: 24,
           ),
-          ProductsList()
+          const ProductsList()
         ],
       ),
     );
