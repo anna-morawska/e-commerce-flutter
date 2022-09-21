@@ -1,3 +1,6 @@
+import 'package:ecommerce_app/styles/theme.dart';
+import 'package:ecommerce_app/widgets/location_input.dart';
+import 'package:ecommerce_app/widgets/typography.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -101,15 +104,40 @@ class _AddEditProductFormState extends State<AddEditProductForm> {
     _setFieldFocus(_titleFocusNode);
   }
 
+  Widget _sectionTitle(String title) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const SizedBox(
+          height: 48,
+        ),
+        TypographyH4(
+          title,
+          textAlign: TextAlign.left,
+          color: ThemeColors.textSecondary,
+        ),
+        const SizedBox(
+          height: 24,
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          _sectionTitle(
+            'Add some photos',
+          ),
           ProductImagePreview(
-              imageUrl: widget.editableProduct.imageUrl,
-              setImageUrl: _setImageUrl),
+            imageUrl: widget.editableProduct.imageUrl,
+            setImageUrl: _setImageUrl,
+          ),
+          _sectionTitle('Add description, the more the better'),
           TextFormFieldInput(
             hint: "Title",
             initialValue: widget.editableProduct.title,
@@ -148,7 +176,11 @@ class _AddEditProductFormState extends State<AddEditProductForm> {
               widget.editableProduct.description = newValue;
             },
           ),
-          const Spacer(),
+          _sectionTitle('Delivery details'),
+          const LocationInput(),
+          const SizedBox(
+            height: 48,
+          ),
           Button(
             "Submit",
             isLoading: _isLoading,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../styles/theme.dart';
-import '../../widgets/image.dart';
 import '../../services/image_picker_service.dart';
 
 class ProductImagePreview extends StatelessWidget {

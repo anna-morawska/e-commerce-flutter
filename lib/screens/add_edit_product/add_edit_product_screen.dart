@@ -30,9 +30,14 @@ class AddEditProductScreen extends StatelessWidget {
 
     return ScreenWrapper(
       title: isEditMode ? "Edit Product" : "Add new product",
-      child: AddEditProductForm(
-        editedProduct,
-      ),
+      child: CustomScrollView(slivers: [
+        SliverFillRemaining(
+          hasScrollBody: false,
+          child: AddEditProductForm(
+            editedProduct,
+          ),
+        ),
+      ]),
     );
   }
 }
