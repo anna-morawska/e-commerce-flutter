@@ -9,6 +9,7 @@ import '../screens/orders/orders_screen.dart';
 import '../screens/auth/auth_screen.dart';
 import '../screens/user_products/user_products_screen.dart';
 import '../screens/add_edit_product/add_edit_product_screen.dart';
+import '../screens/map/map_screen.dart';
 
 Map<String, Widget Function(BuildContext)> appRoutes = {
   AuthScreen.routeName: (ctx) => const AuthScreen(),
@@ -20,4 +21,5 @@ Map<String, Widget Function(BuildContext)> appRoutes = {
   CartScreen.routeName: (ctx) => const CartScreen(),
   UserProducts.routeName: (ctx) => const UserProducts(),
   AddEditProductScreen.routeName: (ctx) => const AddEditProductScreen(),
+  MapScreen.routeName: (ctx) => const MapScreen(),
 };

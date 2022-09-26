@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -9,11 +8,6 @@ import './screens/routes.dart';
 import './styles/theme.dart';
 import './providers/cart_provider.dart';
 import './providers/products_provider.dart';
-import './models/debug.dart';
-import './screens/add_edit_product/add_edit_product_screen.dart';
-import './screens/auth/auth_screen.dart';
-import './screens/onboarding/onboarding_screen.dart';
-import './screens/user_products/user_products_screen.dart';
 import 'i18n/generated/l10n.dart';
 
 void main() {

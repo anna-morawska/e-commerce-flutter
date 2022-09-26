@@ -11,8 +11,10 @@ class UserProducts extends StatelessWidget {
   const UserProducts({Key? key}) : super(key: key);
 
   void _navigateToEditProductScreen(BuildContext context) {
-    Navigator.of(context).pushNamed(AddEditProductScreen.routeName,
-        arguments: AddEditProductScreenArguments());
+    Navigator.of(context).pushNamed(
+      AddEditProductScreen.routeName,
+      arguments: AddEditProductScreenArguments(),
+    );
   }
 
   @override

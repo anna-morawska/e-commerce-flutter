@@ -1,3 +1,5 @@
+import 'package:ecommerce_app/models/location.dart';
+import 'package:ecommerce_app/screens/map/map_screen.dart';
 import 'package:ecommerce_app/services/location_service.dart';
 import 'package:ecommerce_app/styles/theme.dart';
 import 'package:ecommerce_app/widgets/button.dart';
@@ -22,7 +24,25 @@ class _LocationInputState extends State<LocationInput> {
     });
   }
 
-  void _navigateToMapScreen() {}
+  void _navigateToMapScreen() async {
+    final location = await LocationService.getUserLocation();
+
+    final pickedLocation = await Navigator.of(context).pushNamed(
+      MapScreen.routeName,
+      arguments: MapScreenArguments(location: location),
+    ) as Location?;
+
+    if (pickedLocation != null) {
+      final url = await LocationService.getMapSnapshotUrl(
+        lat: pickedLocation.latitude,
+        long: pickedLocation.longitude,
+      );
+
+      setState(() {
+        mapSnapshotUrl = url;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

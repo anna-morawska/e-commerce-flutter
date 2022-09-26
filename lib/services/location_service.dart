@@ -1,11 +1,19 @@
 import 'package:location/location.dart';
+import '../models/location.dart' as CustomModel;
 import 'package:ecommerce_app/config/secrets.dart' as secrets;
 
 class LocationService {
-  static Future<LocationData?> _getUserLocation() async {
+  static Future<CustomModel.Location?> getUserLocation() async {
     try {
       final coordinates = await Location.instance.getLocation();
-      return coordinates;
+      if (coordinates.latitude != null && coordinates.latitude != null) {
+        return CustomModel.Location(
+          latitude: coordinates.latitude!,
+          longitude: coordinates.longitude!,
+        );
+      }
+
+      return null;
     } catch (error) {
       return null;
     }
@@ -23,7 +31,7 @@ class LocationService {
       latitude = lat;
       longitude = long;
     } else {
-      final location = await _getUserLocation();
+      final location = await getUserLocation();
 
       if (location == null ||
           location.latitude == null ||
@@ -38,5 +46,12 @@ class LocationService {
     final coordinates = getCoordinates(latitude, longitude);
 
     return "https://maps.googleapis.com/maps/api/staticmap?center=$coordinates&markers=color:red%7Clabel:A%7C$coordinates&zoom=12&size=400x400&key=${secrets.GOOGLE_MAP_API_KEY}";
+  }
+
+  static CustomModel.Location get defaultLocation {
+    return const CustomModel.Location(
+      latitude: 52.2297,
+      longitude: 21.0122,
+    );
   }
 }
