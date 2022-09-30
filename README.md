@@ -1,7 +1,8 @@
 # ecommerce_app
 
 v1, work in progress
-[![Preview](https://youtu.be/8b5Y4gAD0uQ)
+
+[![Preview](https://img.youtube.com/vi/8b5Y4gAD0uQ/0.jpg)](https://www.youtube.com/watch?v=8b5Y4gAD0uQ)
 
 
 - to install project packages:
