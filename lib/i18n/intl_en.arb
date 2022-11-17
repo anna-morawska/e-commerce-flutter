@@ -1,3 +1,19 @@
 {
-  "main_screen_title": "Check out the most popular products"
+  "main_screen_title": "Check out the most popular products",
+  "auth_screen_title_1": "Welcome,",
+  "auth_screen_title_2": "Login to continue",
+  "auth_screen_form_email_hint": "Enter your email",
+  "auth_screen_form_password_hint": "Enter your password",
+  "auth_screen_form_repeat_password_hint": "Repeat your password",
+  "auth_screen_sign_in": "Sign In",
+  "auth_screen_sign_up": "Sign Up",
+  "auth_screen_dont_have_account": "Don't have an Account?",
+  "auth_screen_already_a_member": "Already a Member?",
+  "error_email_exists": "The email address is already in use by another account.",
+  "error_email_not_found": "There is no user record corresponding to this identifier. The user may have been deleted.",
+  "error_invalid_password": "The password is invalid or the user does not have a password",
+  "error_operation_not_allowed": "Password sign-in is disabled for this project.",
+  "error_user_disabled": "The user account has been disabled by an administrator.",
+  "error_too_many_attempts": "We have blocked all requests from this device due to unusual activity. Try again later.",
+  "error_something_went_wrong": "Something went wrong, please try again"
 }

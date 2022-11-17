@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../../models/order.dart';
-import '../../screens/orders/oder_status.dart';
-import '../../screens/orders/order_details_row.dart';
-import '../../styles/theme.dart';
-import '../../widgets/typography.dart';
+import 'package:ecommerce_app/models/order.dart';
+import 'package:ecommerce_app/screens/orders/oder_status.dart';
+import 'package:ecommerce_app/screens/orders/order_details_row.dart';
+import 'package:ecommerce_app/styles/theme.dart';
+import 'package:ecommerce_app/widgets/typography.dart';
 
 class OrderItem extends StatelessWidget {
   final Order order;
@@ -25,7 +25,7 @@ class OrderItem extends StatelessWidget {
         children: [
           Row(
             children: [
-              TypographyH5Bold(
+              BodyBold(
                 "Order #${order.id}",
               ),
             ],

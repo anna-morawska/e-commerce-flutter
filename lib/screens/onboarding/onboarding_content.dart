@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../styles/theme.dart';
-import '../../widgets/typography.dart';
-import '../../widgets/screen_padding.dart';
+
+import 'package:ecommerce_app/styles/theme.dart';
+import 'package:ecommerce_app/widgets/typography.dart';
+import 'package:ecommerce_app/widgets/screen_padding.dart';
 
 class OnboardingContent extends StatelessWidget {
   final String imagePath;
@@ -32,17 +33,21 @@ class OnboardingContent extends StatelessWidget {
           child: Column(
             children: [
               const Spacer(),
-              TypographyH1(
+              H2(
                 title,
-                color: ThemeColors.white,
+                options: const TypographyOptions(
+                  color: ThemeColors.white,
+                ),
               ),
               const SizedBox(
-                height: 16,
+                height: 24,
               ),
-              TypographyBody(
+              Body(
                 description,
-                textAlign: TextAlign.center,
-                color: ThemeColors.white,
+                options: const TypographyOptions(
+                  textAlign: TextAlign.center,
+                  color: ThemeColors.white,
+                ),
               ),
               const Spacer(),
             ],

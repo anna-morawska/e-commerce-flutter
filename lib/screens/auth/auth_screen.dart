@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../../screens/auth/background.dart';
-import '../../widgets/screen_wrapper.dart';
-import '../../widgets/screen_padding.dart';
-import '../../widgets/typography.dart';
-import '../../screens/auth/auth_form.dart';
+import 'package:ecommerce_app/screens/auth/background.dart';
+import 'package:ecommerce_app/widgets/screen_wrapper.dart';
+import 'package:ecommerce_app/widgets/screen_padding.dart';
+import 'package:ecommerce_app/screens/auth/auth_form.dart';
+import 'package:ecommerce_app/i18n/generated/l10n.dart';
+import 'package:ecommerce_app/widgets/typography.dart';
 
 class AuthScreen extends StatelessWidget {
   static const routeName = '/auth';
@@ -22,17 +23,17 @@ class AuthScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.end,
-            children: const [
-              TypographyTitleBold(
-                "Welcome,",
+            children: [
+              H1(
+                T.of(context).auth_screen_title_1,
               ),
-              TypographyTitle(
-                "Login to continue",
+              H1(
+                T.of(context).auth_screen_title_2,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 80,
               ),
-              AuthForm(),
+              const AuthForm(),
             ],
           ),
         ),

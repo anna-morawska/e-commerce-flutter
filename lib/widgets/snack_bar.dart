@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/typography.dart';
-import '../styles/theme.dart';
+import 'package:ecommerce_app/widgets/typography.dart';
+import 'package:ecommerce_app/styles/theme.dart';
 
 class CustomSnackBar {
   static showSnackBar(BuildContext context, String text) {
@@ -10,9 +10,11 @@ class CustomSnackBar {
       SnackBar(
         duration: const Duration(seconds: 1),
         content: Expanded(
-          child: TypographyBody(
+          child: Body(
             text,
-            textAlign: TextAlign.center,
+            options: const TypographyOptions(
+              textAlign: TextAlign.center,
+            ),
           ),
         ),
         backgroundColor: ThemeColors.secondaryMain,
@@ -25,9 +27,11 @@ class CustomSnackBar {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         duration: const Duration(seconds: 2),
-        content: TypographyBody(
+        content: Body(
           text,
-          textAlign: TextAlign.center,
+          options: const TypographyOptions(
+            textAlign: TextAlign.center,
+          ),
         ),
         backgroundColor: ThemeColors.errorMain,
       ),

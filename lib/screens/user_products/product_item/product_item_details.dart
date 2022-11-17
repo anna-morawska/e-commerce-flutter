@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../../../styles/theme.dart';
-import '../../../widgets/typography.dart';
-import '../../../widgets/image.dart';
+import 'package:ecommerce_app/styles/theme.dart';
+import 'package:ecommerce_app/widgets/typography.dart';
+import 'package:ecommerce_app/widgets/image.dart';
 
 class UserProductItemDetails extends StatelessWidget {
   final String imageUrl;
@@ -32,18 +32,20 @@ class UserProductItemDetails extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            TypographyH6(
+            BodyXXS(
               DateFormat.yMMMMEEEEd().format(DateTime.now()),
-              color: ThemeColors.textSecondary,
+              options: const TypographyOptions(
+                color: ThemeColors.textSecondary,
+              ),
             ),
             const SizedBox(
               height: 4,
             ),
-            TypographyBody(title),
+            Body(title),
             const SizedBox(
               height: 4,
             ),
-            TypographyH5('\$${price.toStringAsFixed(2)}'),
+            BodyXS('\$${price.toStringAsFixed(2)}'),
           ],
         )
       ],

@@ -1,5 +1,5 @@
 abstract class Codable {
-  final String id;
+  final String? id;
 
   Codable(this.id);
 

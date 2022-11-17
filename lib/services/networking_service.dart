@@ -5,7 +5,14 @@ import 'package:http/http.dart' as http;
 import '../models/codable.dart';
 import '../models/http_exception.dart';
 
-enum Endpoints { getProducts, addProduct, updateProduct, deleteProduct }
+enum Endpoints {
+  getProducts,
+  addProduct,
+  updateProduct,
+  deleteProduct,
+  createAccount,
+  signIn,
+}
 
 extension EndpointsExtension on Endpoints {
   String getUrl({String? id}) {
@@ -21,13 +28,20 @@ extension EndpointsExtension on Endpoints {
 
       case Endpoints.deleteProduct:
         return "/products/$id.json";
+
+      case Endpoints.createAccount:
+        return "v1/accounts:signUp";
+
+      case Endpoints.signIn:
+        return "v1/accounts:signInWithPassword";
     }
   }
 }
 
 class NetworkingService {
-  static const authority =
-      'ecommerce-flutter-e57cf-default-rtdb.europe-west1.firebasedatabase.app';
+  final String authority;
+
+  NetworkingService(this.authority);
 
   Future<T?> makeGetRequest<T>({
     String unencodedPath = '/',
@@ -45,11 +59,12 @@ class NetworkingService {
     }
   }
 
-  Future<String?> makePostRequest<T extends Codable>({
+  Future<dynamic> makePostRequest<T extends Codable>({
     String unencodedPath = '/',
     required T payload,
+    Map<String, dynamic>? queryParameters,
   }) async {
-    final url = Uri.https(authority, unencodedPath);
+    final url = Uri.https(authority, unencodedPath, queryParameters);
 
     final body = jsonEncode(payload,
         toEncodable: (Object? value) => value is Codable
@@ -59,13 +74,8 @@ class NetworkingService {
 
     final response = await http.post(url, body: body);
 
-    if (response.statusCode == 200) {
-      final jsonResponse = jsonDecode(response.body);
-
-      return jsonResponse['name'];
-    } else {
-      return null;
-    }
+    final jsonResponse = jsonDecode(response.body);
+    return jsonResponse;
   }
 
   Future<void> makePatchRequest<T extends Codable>({

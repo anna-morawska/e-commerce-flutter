@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../providers/cart_provider.dart';
-import '../../styles/theme.dart';
-import '../../widgets/button.dart';
-import '../../screens/product_details/colors_picker.dart';
-import '../../screens/product_details/size_picker.dart';
-import '../../widgets/typography.dart';
-import '../../models/cart_item.dart';
-import '../../models/product.dart';
-import '../../widgets/snack_bar.dart';
+import 'package:ecommerce_app/providers/cart_provider.dart';
+import 'package:ecommerce_app/styles/theme.dart';
+import 'package:ecommerce_app/widgets/button.dart';
+import 'package:ecommerce_app/screens/product_details/colors_picker.dart';
+import 'package:ecommerce_app/screens/product_details/size_picker.dart';
+import 'package:ecommerce_app/widgets/typography.dart';
+import 'package:ecommerce_app/models/cart_item.dart';
+import 'package:ecommerce_app/models/product.dart';
+import 'package:ecommerce_app/widgets/snack_bar.dart';
 
 class ProductDetails extends StatefulWidget {
   final Product product;
@@ -55,10 +55,10 @@ class _ProductDetailsState extends State<ProductDetails> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            TypographyH1(
+            H1(
               widget.product.title,
             ),
-            TypographyH1(
+            H1(
               "\$${widget.product.price}",
             ),
           ],
@@ -66,9 +66,11 @@ class _ProductDetailsState extends State<ProductDetails> {
         const SizedBox(
           height: 16,
         ),
-        TypographyBody(
+        Body(
           widget.product.description,
-          color: ThemeColors.textSecondary,
+          options: const TypographyOptions(
+            color: ThemeColors.textSecondary,
+          ),
         ),
         const SizedBox(
           height: 24,
@@ -102,7 +104,9 @@ class _ProductDetailsState extends State<ProductDetails> {
             Navigator.of(context).pop();
 
             CustomSnackBar.showSnackBar(
-                context, "Item successfully added to the cart");
+              context,
+              "Item successfully added to the cart",
+            );
           },
         ),
       ],

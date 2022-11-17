@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/typography.dart';
-import '../../models/order.dart';
+import 'package:ecommerce_app/widgets/typography.dart';
+import 'package:ecommerce_app/models/order.dart';
 
 class OrderStatus extends StatelessWidget {
   final OrderStatusType statusType;
@@ -30,9 +30,11 @@ class OrderStatus extends StatelessWidget {
           const SizedBox(
             width: 4,
           ),
-          TypographyBody(
+          Body(
             statusType.name,
-            color: statusType.color,
+            options: TypographyOptions(
+              color: statusType.color,
+            ),
           ),
         ],
       ),

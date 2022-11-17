@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../widgets/screen_wrapper.dart';
-import '../../providers/cart_provider.dart';
-import '../../styles/theme.dart';
-import '../../widgets/typography.dart';
-import '../../screens/products/app_bar_cart_button.dart';
-import '../../screens/cart/cart_screen.dart';
-import '../../screens/products/categories.dart';
-import '../../screens/products/product_list.dart';
+import 'package:ecommerce_app/widgets/screen_wrapper.dart';
+import 'package:ecommerce_app/providers/cart_provider.dart';
+import 'package:ecommerce_app/styles/theme.dart';
+import 'package:ecommerce_app/widgets/typography.dart';
+import 'package:ecommerce_app/screens/products/app_bar_cart_button.dart';
+import 'package:ecommerce_app/screens/cart/cart_screen.dart';
+import 'package:ecommerce_app/screens/products/categories.dart';
+import 'package:ecommerce_app/screens/products/product_list.dart';
 
 import 'package:ecommerce_app/i18n/generated/l10n.dart';
 
@@ -40,9 +40,11 @@ class ProductsScreen extends StatelessWidget {
         children: [
           FractionallySizedBox(
             widthFactor: 0.7,
-            child: TypographyH1(
+            child: H1(
               T.of(context).main_screen_title,
-              color: ThemeColors.textSecondary,
+              options: const TypographyOptions(
+                color: ThemeColors.textSecondary,
+              ),
             ),
           ),
           const SizedBox(

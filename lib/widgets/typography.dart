@@ -1,24 +1,35 @@
 import 'package:flutter/material.dart';
 
-import '../styles/theme.dart';
+import 'package:ecommerce_app/styles/theme.dart';
+
+class TypographyOptions {
+  final Color? color;
+  final TextAlign? textAlign;
+
+  const TypographyOptions({
+    this.color,
+    this.textAlign,
+  });
+}
 
 class BaseTypography extends StatelessWidget {
   final String text;
-  final TextAlign? textAlign;
-  final FontWeight? fontWeight;
-  final double? fontSize;
-  final Color? color;
-  final double? height;
+  final FontWeight fontWeight;
+  final double fontSize;
+  final double height;
+  final TypographyOptions? options;
 
   const BaseTypography(
     this.text, {
-    Key? key,
-    this.color = ThemeColors.textPrimary,
-    this.textAlign = TextAlign.left,
-    this.fontWeight = FontWeight.normal,
-    this.fontSize = 14,
-    this.height = 1.5,
-  }) : super(key: key);
+    required this.fontWeight,
+    required this.fontSize,
+    required this.height,
+    this.options,
+    super.key,
+  });
+
+  Color get color => options?.color ?? ThemeColors.textPrimary;
+  TextAlign get textAlign => options?.textAlign ?? TextAlign.left;
 
   @override
   Widget build(BuildContext context) {
@@ -27,267 +38,132 @@ class BaseTypography extends StatelessWidget {
       textAlign: textAlign,
       softWrap: true,
       style: TextStyle(
-        wordSpacing: 3,
-        fontFamily: 'Lato',
+        fontFamily: 'SFPro',
+        height: height,
         fontWeight: fontWeight,
         fontSize: fontSize,
         color: color,
-        height: height,
       ),
     );
   }
 }
 
-class TypographyBody extends StatelessWidget {
-  final String text;
-  final Color? color;
-  final TextAlign? textAlign;
-  final double? height;
-
-  const TypographyBody(
-    this.text, {
-    this.color,
-    this.textAlign,
-    this.height,
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BaseTypography(
-      text,
-      color: color,
-      textAlign: textAlign,
-      height: height,
-    );
-  }
+class H1 extends BaseTypography {
+  const H1(
+    super.text, {
+    super.options,
+    super.key,
+  }) : super(
+          fontWeight: FontWeight.normal,
+          fontSize: 40,
+          height: 1.2,
+        );
 }
 
-class TypographyTitleBold extends StatelessWidget {
-  final String text;
-
-  const TypographyTitleBold(
-    this.text, {
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BaseTypography(
-      text,
-      fontWeight: FontWeight.w900,
-      fontSize: 26,
-    );
-  }
+class H2 extends BaseTypography {
+  const H2(
+    super.text, {
+    super.options,
+    super.key,
+  }) : super(
+          fontSize: 28,
+          fontWeight: FontWeight.w600,
+          height: 1,
+        );
 }
 
-class TypographyTitle extends StatelessWidget {
-  final String text;
-
-  const TypographyTitle(
-    this.text, {
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BaseTypography(
-      text,
-      fontWeight: FontWeight.w400,
-      fontSize: 26,
-      color: ThemeColors.textSecondary,
-    );
-  }
+class H3 extends BaseTypography {
+  const H3(
+    super.text, {
+    super.options,
+    super.key,
+  }) : super(
+          fontSize: 20,
+          fontWeight: FontWeight.normal,
+          height: 1.2,
+        );
 }
 
-class TypographyH4Light extends StatelessWidget {
-  final String text;
-  final Color? color;
-  final TextAlign? textAlign;
-  final double? height;
-
-  const TypographyH4Light(
-    this.text, {
-    this.color,
-    this.textAlign,
-    this.height,
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BaseTypography(
-      text,
-      fontWeight: FontWeight.w400,
-      fontSize: 16,
-      color: color,
-      textAlign: textAlign,
-      height: height,
-    );
-  }
+class BodyL extends BaseTypography {
+  const BodyL(
+    super.text, {
+    super.options,
+    super.key,
+  }) : super(
+          fontSize: 18,
+          fontWeight: FontWeight.normal,
+          height: 1.34,
+        );
 }
 
-class TypographyH4 extends StatelessWidget {
-  final String text;
-  final Color? color;
-  final TextAlign? textAlign;
-  final double? height;
-
-  const TypographyH4(
-    this.text, {
-    this.color,
-    this.textAlign,
-    this.height,
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BaseTypography(
-      text,
-      fontWeight: FontWeight.w600,
-      fontSize: 16,
-      color: color,
-      textAlign: textAlign,
-      height: height,
-    );
-  }
+class Body extends BaseTypography {
+  const Body(
+    super.text, {
+    super.options,
+    super.key,
+  }) : super(
+          fontSize: 16,
+          fontWeight: FontWeight.normal,
+          height: 1.5,
+        );
 }
 
-class TypographyH5 extends StatelessWidget {
-  final String text;
-  final Color? color;
-
-  const TypographyH5(
-    this.text, {
-    this.color,
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BaseTypography(
-      text,
-      fontWeight: FontWeight.w600,
-      fontSize: 14,
-      color: color,
-    );
-  }
+class BodyBold extends BaseTypography {
+  const BodyBold(
+    super.text, {
+    super.options,
+    super.key,
+  }) : super(
+          fontSize: 16,
+          fontWeight: FontWeight.w600,
+          height: 1.5,
+        );
 }
 
-class TypographyH5Bold extends StatelessWidget {
-  final String text;
-  final Color? color;
-  final TextAlign? textAlign;
-  final double? height;
-
-  const TypographyH5Bold(
-    this.text, {
-    this.color,
-    this.textAlign,
-    this.height,
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BaseTypography(
-      text,
-      fontWeight: FontWeight.w900,
-      fontSize: 14,
-      color: color,
-      textAlign: textAlign,
-      height: height,
-    );
-  }
+class BodyS extends BaseTypography {
+  const BodyS(
+    super.text, {
+    super.options,
+    super.key,
+  }) : super(
+          fontSize: 14,
+          fontWeight: FontWeight.normal,
+          height: 1.3,
+        );
 }
 
-class TypographyH1 extends StatelessWidget {
-  final String text;
-  final Color? color;
-  final TextAlign? textAlign;
-
-  const TypographyH1(
-    this.text, {
-    this.color,
-    this.textAlign,
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BaseTypography(
-      text,
-      fontWeight: FontWeight.w900,
-      fontSize: 22,
-      color: color,
-      textAlign: textAlign,
-    );
-  }
+class BodyBoldS extends BaseTypography {
+  const BodyBoldS(
+    super.text, {
+    super.options,
+    super.key,
+  }) : super(
+          fontSize: 14,
+          fontWeight: FontWeight.w600,
+          height: 1.3,
+        );
 }
 
-class TypographyH2 extends StatelessWidget {
-  final String text;
-  final Color? color;
-  final TextAlign? textAlign;
-
-  const TypographyH2(
-    this.text, {
-    this.color,
-    this.textAlign,
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BaseTypography(
-      text,
-      fontWeight: FontWeight.w900,
-      fontSize: 18,
-      color: color,
-      textAlign: textAlign,
-    );
-  }
+class BodyXS extends BaseTypography {
+  const BodyXS(
+    super.text, {
+    super.options,
+    super.key,
+  }) : super(
+          fontSize: 12,
+          fontWeight: FontWeight.normal,
+          height: 1.3,
+        );
 }
 
-class TypographyCaption extends StatelessWidget {
-  final String text;
-  final Color? color;
-
-  const TypographyCaption(
-    this.text, {
-    this.color,
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BaseTypography(
-      text,
-      fontWeight: FontWeight.w900,
-      fontSize: 8,
-      color: color,
-    );
-  }
-}
-
-class TypographyH6 extends StatelessWidget {
-  final String text;
-  final Color? color;
-
-  const TypographyH6(
-    this.text, {
-    this.color,
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BaseTypography(
-      text,
-      fontWeight: FontWeight.w400,
-      fontSize: 12,
-      color: color,
-    );
-  }
+class BodyXXS extends BaseTypography {
+  const BodyXXS(
+    super.text, {
+    super.options,
+    super.key,
+  }) : super(
+          fontSize: 10,
+          fontWeight: FontWeight.normal,
+          height: 1.4,
+        );
 }

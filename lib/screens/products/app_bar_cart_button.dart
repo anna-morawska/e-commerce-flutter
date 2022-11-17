@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../styles/theme.dart';
-import '../../widgets/typography.dart';
+import 'package:ecommerce_app/styles/theme.dart';
+import 'package:ecommerce_app/widgets/typography.dart';
 
 class AppBarCartButton extends StatelessWidget {
   final int numberOfItems;
@@ -38,9 +38,11 @@ class AppBarCartButton extends StatelessWidget {
                     shape: BoxShape.circle,
                     color: ThemeColors.errorMain,
                   ),
-                  child: TypographyCaption(
+                  child: BodyS(
                     '$numberOfItems',
-                    color: ThemeColors.white,
+                    options: const TypographyOptions(
+                      color: ThemeColors.white,
+                    ),
                   ),
                 ),
               )

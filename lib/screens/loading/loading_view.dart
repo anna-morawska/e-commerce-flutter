@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-import '../../styles/theme.dart';
-import '../../widgets/typography.dart';
+import 'package:ecommerce_app/styles/theme.dart';
+import 'package:ecommerce_app/widgets/typography.dart';
 
 class LoadingView extends StatelessWidget {
   const LoadingView({Key? key}) : super(key: key);
@@ -19,17 +19,21 @@ class LoadingView extends StatelessWidget {
           height: 200,
           child: Lottie.asset('lib/assets/animations/shopping-loader.json'),
         ),
-        const TypographyH1(
+        const H2(
           "Please wait!",
-          textAlign: TextAlign.center,
+          options: TypographyOptions(
+            textAlign: TextAlign.center,
+          ),
         ),
         const SizedBox(
           height: 8,
         ),
-        const TypographyBody(
+        const Body(
           "We are processing your order, almost done!",
-          textAlign: TextAlign.center,
-          color: ThemeColors.textSecondary,
+          options: TypographyOptions(
+            textAlign: TextAlign.center,
+            color: ThemeColors.textSecondary,
+          ),
         ),
         const SizedBox(
           width: 200,

@@ -17,7 +17,6 @@ class ThemeColors {
   static const Color textPrimary = const Color.fromRGBO(0, 0, 0, 0.8);
 
   static const Color secondaryMain = const Color.fromRGBO(182, 141, 64, 1);
-  // static Color sth = const Color.fromRGBO(244, 235, 208, 1);
   static const Color accent = const Color.fromRGBO(18, 38, 32, 1);
 
   static const Color errorMain = const Color.fromRGBO(255, 79, 79, 1);

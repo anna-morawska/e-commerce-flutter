@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../styles/theme.dart';
-import '../widgets/typography.dart';
-import '../widgets/app_bar_action_button.dart';
+import 'package:ecommerce_app/styles/theme.dart';
+import 'package:ecommerce_app/widgets/typography.dart';
+import 'package:ecommerce_app/widgets/app_bar_action_button.dart';
 
 class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
   final String title;
@@ -46,7 +46,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
       backgroundColor: ThemeColors.white,
       foregroundColor: ThemeColors.textSecondary,
       elevation: 0,
-      title: TypographyH2(
+      title: H3(
         title,
       ),
       actions: actions,

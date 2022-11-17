@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:confetti/confetti.dart';
 
-import '../../styles/theme.dart';
-import '../../widgets/button.dart';
-import '../../widgets/typography.dart';
-import '../../screens/orders/orders_screen.dart';
+import 'package:ecommerce_app/styles/theme.dart';
+import 'package:ecommerce_app/widgets/button.dart';
+import 'package:ecommerce_app/widgets/typography.dart';
+import 'package:ecommerce_app/screens/orders/orders_screen.dart';
 
 class SuccessView extends StatefulWidget {
   const SuccessView({Key? key}) : super(key: key);
@@ -52,14 +52,21 @@ class _SuccessViewState extends State<SuccessView> {
           ),
         ),
         const Spacer(),
-        const TypographyH1("Thank you for shopping!"),
+        const H2(
+          "Thank you for shopping!",
+          options: TypographyOptions(
+            textAlign: TextAlign.center,
+          ),
+        ),
         const SizedBox(
           height: 8,
         ),
-        const TypographyBody(
+        const Body(
           "Your order has been placed successfully. For more details check My Orders screen.",
-          textAlign: TextAlign.center,
-          color: ThemeColors.textSecondary,
+          options: TypographyOptions(
+            textAlign: TextAlign.center,
+            color: ThemeColors.textSecondary,
+          ),
         ),
         const Spacer(),
         Button(

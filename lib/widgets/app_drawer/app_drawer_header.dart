@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../styles/theme.dart';
-import '../../widgets/typography.dart';
+import 'package:ecommerce_app/styles/theme.dart';
+import 'package:ecommerce_app/widgets/typography.dart';
 
 class AppDrawerHeader extends StatelessWidget {
   const AppDrawerHeader({Key? key}) : super(key: key);
@@ -14,9 +14,11 @@ class AppDrawerHeader extends StatelessWidget {
         const CircleAvatar(
           radius: 16,
           backgroundColor: ThemeColors.textSecondary,
-          child: TypographyBody(
+          child: Body(
             "AM",
-            color: ThemeColors.white,
+            options: TypographyOptions(
+              color: ThemeColors.white,
+            ),
           ),
         ),
         const SizedBox(
@@ -25,13 +27,17 @@ class AppDrawerHeader extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: const [
-            TypographyH5(
+            BodyBold(
               "Anna Morawska",
-              color: ThemeColors.white,
+              options: TypographyOptions(
+                color: ThemeColors.white,
+              ),
             ),
-            TypographyBody(
+            Body(
               "annak@mooncascade.com",
-              color: ThemeColors.white,
+              options: TypographyOptions(
+                color: ThemeColors.white,
+              ),
             )
           ],
         )

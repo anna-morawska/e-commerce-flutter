@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../styles/theme.dart';
-import '../../widgets/typography.dart';
+import 'package:ecommerce_app/styles/theme.dart';
+import 'package:ecommerce_app/widgets/typography.dart';
 
 class CategoryItem extends StatelessWidget {
   final String categoryName;
@@ -29,9 +29,11 @@ class CategoryItem extends StatelessWidget {
               width: 1,
               style: BorderStyle.solid,
             )),
-        child: TypographyBody(
+        child: BodyBold(
           categoryName,
-          color: isSelected ? ThemeColors.white : ThemeColors.textPrimary,
+          options: TypographyOptions(
+            color: isSelected ? ThemeColors.white : ThemeColors.textPrimary,
+          ),
         ),
       ),
     );

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../screens/products/products_screen.dart';
-import '../styles/theme.dart';
-import '../widgets/button.dart';
-import '../widgets/typography.dart';
+import 'package:ecommerce_app/screens/products/products_screen.dart';
+import 'package:ecommerce_app/styles/theme.dart';
+import 'package:ecommerce_app/widgets/button.dart';
+import 'package:ecommerce_app/widgets/typography.dart';
 
 class EmptyScreenPlaceholder extends StatelessWidget {
   const EmptyScreenPlaceholder({
@@ -27,10 +27,12 @@ class EmptyScreenPlaceholder extends StatelessWidget {
         ),
         const FractionallySizedBox(
           widthFactor: 0.7,
-          child: TypographyH4(
+          child: H3(
             "Looks like you haven't made your choice yet...",
-            color: ThemeColors.textSecondary,
-            textAlign: TextAlign.center,
+            options: TypographyOptions(
+              color: ThemeColors.textSecondary,
+              textAlign: TextAlign.center,
+            ),
           ),
         ),
         const Spacer(),

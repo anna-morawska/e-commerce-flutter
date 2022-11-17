@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
-import '../services/networking_service.dart';
 
-import '../models/product.dart';
+import 'package:ecommerce_app/config/secrets.dart' as secrets;
+import 'package:ecommerce_app/services/networking_service.dart';
+import 'package:ecommerce_app/models/product.dart';
 
 class ProductsProvider extends ChangeNotifier {
   List<Product> _products = [];
   final Set<String> _favorites = {};
-  final _api = NetworkingService();
+  final _api = NetworkingService(
+    secrets.REST_API,
+  );
 
   ProductsProvider() {
     loadProducts();
@@ -54,8 +57,12 @@ class ProductsProvider extends ChangeNotifier {
   }
 
   Future<void> addProduct(Product product) async {
-    final serverSideId = await _api.makePostRequest(
-        unencodedPath: Endpoints.addProduct.getUrl(), payload: product);
+    final response = await _api.makePostRequest(
+      unencodedPath: Endpoints.addProduct.getUrl(),
+      payload: product,
+    );
+
+    final serverSideId = response['name'];
 
     if (serverSideId != null) {
       _products.add(Product(
@@ -71,8 +78,9 @@ class ProductsProvider extends ChangeNotifier {
 
   Future<void> updateProduct(String id, Product updatedProduct) async {
     await _api.makePatchRequest(
-        unencodedPath: Endpoints.updateProduct.getUrl(id: id),
-        payload: updatedProduct);
+      unencodedPath: Endpoints.updateProduct.getUrl(id: id),
+      payload: updatedProduct,
+    );
 
     final index = _products.indexWhere((product) => product.id == id);
     _products[index] = updatedProduct;

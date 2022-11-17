@@ -4,12 +4,12 @@ import 'package:ecommerce_app/widgets/typography.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../screens/add_edit_product/product_image_preview.dart';
-import '../../widgets/text_form_field_input.dart';
-import '../../models/product.dart';
-import '../../widgets/snack_bar.dart';
-import '../../providers/products_provider.dart';
-import '../../widgets/button.dart';
+import 'package:ecommerce_app/screens/add_edit_product/product_image_preview.dart';
+import 'package:ecommerce_app/widgets/text_form_field_input.dart';
+import 'package:ecommerce_app/models/product.dart';
+import 'package:ecommerce_app/widgets/snack_bar.dart';
+import 'package:ecommerce_app/providers/products_provider.dart';
+import 'package:ecommerce_app/widgets/button.dart';
 
 class AddEditProductForm extends StatefulWidget {
   late final EditableProduct editableProduct;
@@ -111,10 +111,12 @@ class _AddEditProductFormState extends State<AddEditProductForm> {
         const SizedBox(
           height: 48,
         ),
-        TypographyH4(
+        H3(
           title,
-          textAlign: TextAlign.left,
-          color: ThemeColors.textSecondary,
+          options: const TypographyOptions(
+            color: ThemeColors.textSecondary,
+            textAlign: TextAlign.left,
+          ),
         ),
         const SizedBox(
           height: 24,

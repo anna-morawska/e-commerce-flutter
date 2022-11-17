@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../styles/theme.dart';
-import '../widgets/typography.dart';
+import 'package:ecommerce_app/styles/theme.dart';
+import 'package:ecommerce_app/widgets/typography.dart';
 
 enum ButtonType {
   filled,
@@ -79,10 +79,13 @@ class Button extends StatelessWidget {
                 width: 8,
               ),
             ],
-            TypographyH5(
+            Body(
               text,
-              color:
-                  isOutlined ? ThemeColors.textPrimary : ThemeColors.background,
+              options: TypographyOptions(
+                color: isOutlined
+                    ? ThemeColors.textPrimary
+                    : ThemeColors.background,
+              ),
             ),
           ],
         ),

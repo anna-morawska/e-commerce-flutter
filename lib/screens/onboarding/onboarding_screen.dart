@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../screens/products/products_screen.dart';
-import '../../screens/onboarding/onboarding_footer.dart';
-import '../../screens/onboarding/onboarding_content.dart';
-import '../../screens/onboarding/background.dart';
-import '../../widgets/screen_wrapper.dart';
+import 'package:ecommerce_app/screens/products/products_screen.dart';
+import 'package:ecommerce_app/screens/onboarding/onboarding_footer.dart';
+import 'package:ecommerce_app/screens/onboarding/onboarding_content.dart';
+import 'package:ecommerce_app/screens/onboarding/background.dart';
+import 'package:ecommerce_app/widgets/screen_wrapper.dart';
 
 class OnboardingScreen extends StatefulWidget {
   static const routeName = '/onboarding';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/typography.dart';
+import 'package:ecommerce_app/widgets/typography.dart';
 
 class OrderDetailsRow extends StatelessWidget {
   final String title;
@@ -21,8 +21,8 @@ class OrderDetailsRow extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          TypographyBody(title),
-          if (data != null) TypographyH5(data!),
+          Body(title),
+          if (data != null) BodyS(data!),
           if (child != null) child!,
         ],
       ),

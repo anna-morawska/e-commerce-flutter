@@ -1,9 +1,9 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 
-import '../../widgets/typography.dart';
-import '../../styles/theme.dart';
-import '../../models/cart_item.dart';
+import 'package:ecommerce_app/widgets/typography.dart';
+import 'package:ecommerce_app/styles/theme.dart';
+import 'package:ecommerce_app/models/cart_item.dart';
 
 class SizePicker extends StatelessWidget {
   final Size selectedSize;
@@ -20,7 +20,7 @@ class SizePicker extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const TypographyH5Bold('Size'),
+        const BodyBold('Size'),
         const SizedBox(
           height: 8,
         ),
@@ -64,9 +64,11 @@ class SizeSample extends StatelessWidget {
           width: dimensions,
           height: dimensions,
           alignment: Alignment.center,
-          child: TypographyH5Bold(
+          child: BodyBold(
             size,
-            color: isSelected ? ThemeColors.white : ThemeColors.accent,
+            options: TypographyOptions(
+              color: isSelected ? ThemeColors.white : ThemeColors.accent,
+            ),
           ),
           decoration: BoxDecoration(
             color:

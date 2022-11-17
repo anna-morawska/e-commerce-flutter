@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../screens/onboarding/page_indicator.dart';
-import '../../widgets/screen_padding.dart';
-import '../../widgets/typography.dart';
-import '../../styles/theme.dart';
+import 'package:ecommerce_app/screens/onboarding/page_indicator.dart';
+import 'package:ecommerce_app/widgets/screen_padding.dart';
+import 'package:ecommerce_app/widgets/typography.dart';
+import 'package:ecommerce_app/styles/theme.dart';
 
 class OnboardingFooter extends StatelessWidget {
   final int currentIndex;
@@ -25,17 +25,24 @@ class OnboardingFooter extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: onSkipPress,
-            child: const TypographyH4Light(
+            child: const BodyBold(
               'Skip',
-              color: ThemeColors.white,
+              options: TypographyOptions(
+                color: ThemeColors.textSecondary,
+              ),
             ),
           ),
-          PageIndicator(numberOfPages: 3, currentIndex: currentIndex),
+          PageIndicator(
+            numberOfPages: 3,
+            currentIndex: currentIndex,
+          ),
           GestureDetector(
             onTap: onNextPress,
-            child: const TypographyH4Light(
+            child: const BodyBold(
               'Next',
-              color: ThemeColors.white,
+              options: TypographyOptions(
+                color: ThemeColors.white,
+              ),
             ),
           ),
         ],

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../styles/theme.dart';
-import '../../widgets/typography.dart';
+import 'package:ecommerce_app/styles/theme.dart';
+import 'package:ecommerce_app/widgets/typography.dart';
 
 class AppDrawerListTile extends StatelessWidget {
   final String title;
@@ -31,10 +31,11 @@ class AppDrawerListTile extends StatelessWidget {
               size: 18,
             ),
             const SizedBox(width: 16),
-            TypographyH4Light(
+            BodyS(
               title,
-              height: 1,
-              color: ThemeColors.white,
+              options: const TypographyOptions(
+                color: ThemeColors.white,
+              ),
             ),
           ],
         ),

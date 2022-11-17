@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../styles/theme.dart';
-import '../../widgets/button.dart';
-import '../../screens/cart/cart_product_item.dart';
-import '../../widgets/typography.dart';
-import '../../models/cart_item.dart';
+import 'package:ecommerce_app/styles/theme.dart';
+import 'package:ecommerce_app/widgets/button.dart';
+import 'package:ecommerce_app/screens/cart/cart_product_item.dart';
+import 'package:ecommerce_app/widgets/typography.dart';
+import 'package:ecommerce_app/models/cart_item.dart';
 
 class CartScreenView extends StatelessWidget {
   final double cartTotal;
@@ -59,8 +59,8 @@ class CartScreenView extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const TypographyH1("Total:"),
-            TypographyH1("\$${cartTotal.toStringAsFixed(2)}"),
+            const Body("Total:"),
+            Body("\$${cartTotal.toStringAsFixed(2)}"),
           ],
         ),
         const SizedBox(

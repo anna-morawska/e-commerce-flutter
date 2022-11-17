@@ -1,3 +1,6 @@
 {
-  "cSpell.words": ["ecommerce"]
+  "cSpell.words": ["ecommerce"],
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 160,
+  "prettier.printWidth": 160
 }

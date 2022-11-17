@@ -2,8 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import '../../../styles/theme.dart';
-import '../../../widgets/typography.dart';
+import 'package:ecommerce_app/styles/theme.dart';
+import 'package:ecommerce_app/widgets/typography.dart';
 
 class Stats extends StatelessWidget {
   const Stats({
@@ -77,10 +77,11 @@ class StatsItem extends StatelessWidget {
         const SizedBox(
           width: 4,
         ),
-        TypographyH5Bold(
+        BodyBold(
           Random().nextInt(500).toString(),
-          height: 1,
-          color: ThemeColors.textSecondary,
+          options: const TypographyOptions(
+            color: ThemeColors.textSecondary,
+          ),
         )
       ],
     );

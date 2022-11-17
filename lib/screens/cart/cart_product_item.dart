@@ -51,13 +51,13 @@ class CartProductItem extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TypographyH4(product.title),
+              H3(product.title),
               const SizedBox(
                 height: 8,
               ),
               Row(
                 children: [
-                  const TypographyH5("Color:"),
+                  const Body("Color:"),
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 4),
                     width: 20,
@@ -67,14 +67,14 @@ class CartProductItem extends StatelessWidget {
                       color: cartItem.color,
                     ),
                   ),
-                  const TypographyH5("Size: "),
-                  TypographyH5(cartItem.size.name),
+                  const Body("Size: "),
+                  Body(cartItem.size.name),
                 ],
               ),
               const SizedBox(
                 height: 16,
               ),
-              TypographyH5Bold(
+              Body(
                 "\$${cartItem.price}",
               ),
             ],

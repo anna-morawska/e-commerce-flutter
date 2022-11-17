@@ -1,8 +1,8 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 
-import '../../widgets/typography.dart';
-import '../../styles/theme.dart';
+import 'package:ecommerce_app/widgets/typography.dart';
+import 'package:ecommerce_app/styles/theme.dart';
 
 class ColorsPicker extends StatelessWidget {
   final List<Color> colors;
@@ -21,7 +21,7 @@ class ColorsPicker extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const TypographyH5Bold('Colors'),
+        const BodyBold('Colors'),
         const SizedBox(
           height: 8,
         ),

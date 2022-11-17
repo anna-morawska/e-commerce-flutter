@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../styles/theme.dart';
-import '../../widgets/typography.dart';
-import '../../providers/products_provider.dart';
-import '../../widgets/image.dart';
+import 'package:ecommerce_app/styles/theme.dart';
+import 'package:ecommerce_app/widgets/typography.dart';
+import 'package:ecommerce_app/providers/products_provider.dart';
+import 'package:ecommerce_app/widgets/image.dart';
 
 class ProductItem extends StatelessWidget {
   final String id;
@@ -34,13 +34,13 @@ class ProductItem extends StatelessWidget {
         const SizedBox(
           height: 8,
         ),
-        TypographyH5Bold(
+        BodyBold(
           title,
         ),
         const SizedBox(
           height: 4,
         ),
-        TypographyH5(
+        Body(
           '\$$price',
         ),
       ],
